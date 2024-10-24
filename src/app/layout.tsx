@@ -1,17 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { Header } from "./components/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,10 +14,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`antialiased flex flex-col h-screen`}>
+        <div>
+          <Header />
+        </div>
+        <main className="max-h-[100vh]">{children}</main>
+        <script
+          type="text/javascript"
+          src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=R7HmZ6LRXneE6N1wRr8PJaqOo18zgyVH" />
       </body>
     </html>
   );
