@@ -1,0 +1,45 @@
+.Card2 {
+    width: 100%; /* or any other value you prefer */
+    height: inherit;
+    border: 1px solid #16dcdf;
+    display: inline-block;
+}
+
+
+/* 左上和左下 */
+.Card2::before {
+    top: -2px;
+    left: -2px;
+    border-top: 2px solid #16dcdf;
+    border-left: 2px solid #16dcdf;
+    box-shadow: #16dcdf;
+}
+
+.Card2::after {
+    bottom: -2px;
+    left: -2px;
+    border-bottom: 2px solid #16dcdf;
+    border-left: 2px solid #16dcdf;
+}
+
+/* 右上和右下 */
+.Card2-inner::before,
+.Card2-inner::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 4px;
+}
+.Card2-inner::before {
+    top: -2px;
+    right: -2px;
+    border-top: 2px solid #16dcdf;
+    border-right: 2px solid #16dcdf;
+}
+.Card2-inner::after {
+    bottom: -2px;
+    right: -2px;
+    border-bottom: 2px solid #16dcdf;
+    border-right: 2px solid #16dcdf;
+}
