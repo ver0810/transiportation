@@ -21,7 +21,8 @@ export default function RootLayout({
         <main className="max-h-[100vh]">{children}</main>
         <script
           type="text/javascript"
-          src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=R7HmZ6LRXneE6N1wRr8PJaqOo18zgyVH" />
+          src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=R7HmZ6LRXneE6N1wRr8PJaqOo18zgyVH"
+        />
       </body>
     </html>
   );

@@ -1,14 +1,14 @@
 import Card from "./components/Card";
-import Card2 from "./components/Card2";
-import { Header } from "./components/Header";
+import { Card2, Card3 } from "./components/Card2";
 import BaiduMap from "./components/Maps";
-import { PieComponent } from "./components/MyBarcharts";
+import HomePie from "./components/Charts/HomePie";
 import {
   AreaOptionzatedCharts,
   BeforeAfterBar,
-  HorizontalBar,
-  VerticalBar,
 } from "./components/MyBarcharts";
+
+import HomeVerticalBar from "./components/Charts/HomeVerBar";
+import HomeHoriBar from "./components/Charts/HomeHoriBar";
 
 const chartData = [
   { x: "龙翔桥", y: 9.5 },
@@ -55,33 +55,29 @@ export default function Home() {
       <div className="flex items-center justify-center w-full h-full p-2">
         <div className="grid grid-cols-4 gap-4">
           {/* 左侧栏 */}
-          <div className="flex flex-col">
-            {/* <Card
-              title="地铁流量优化TOP5"
-              className="h-1/2">
-              <HorizontalBar data={chartData} />
-              </Card> */}
-            <Card2 title="地铁流量优化TOP5">
-              {/* <HorizontalBar data={chartData} /> */}
-              hello world
-            </Card2>
-            <Card title="优化后地铁发车时间间隔展示" className="h-1/2">
-              <VerticalBar data={scheduleData} />
+          <div className="flex flex-col gap-4">
+            <div className="w-full">
+              <Card2 title="地铁流量优化TOP5">
+                <HomeHoriBar data={chartData} />
+              </Card2>
+            </div>
+            <Card title="优化后地铁发车时间间隔展示">
+              <HomeVerticalBar data={scheduleData} />
             </Card>
           </div>
 
           {/* 中间栏 */}
-          <div className="h-full col-span-2 flex flex-col gap-4">
-            <Card2 title="">
-              {/* lng: 经, lat:纬 */}
-              <BaiduMap center={{ lng: 120.1551, lat: 30.2741 }} zoom={15} />
-            </Card2>
-            <Card title="班次优化 前-后" className="h-1/2 bg-opacity-0">
-              <div className="w-full flex">
-                <PieComponent data={beforePieData} />
-                <PieComponent data={afterPieData} />
-              </div>
-            </Card>
+          <div className="col-span-2 flex flex-col gap-4">
+            <div className="h-[200px] w-full flex ">
+              <Card3>
+                {/* lng: 经, lat:纬 */}
+                <BaiduMap center={{ lng: 120.1551, lat: 30.2741 }} zoom={15} />
+              </Card3>
+            </div>
+            <div className="w-full h-full flex items-center justify-between">
+              <HomePie data={beforePieData} />
+              <HomePie data={afterPieData} />
+            </div>
           </div>
 
           {/* 右侧栏 */}

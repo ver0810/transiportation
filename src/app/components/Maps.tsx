@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import mapStyle from ".././assets/mapstyle.json";
 
 interface BaiduMapProps {
   center: { lng: number; lat: number }; // 中心点的经纬度
@@ -13,10 +14,8 @@ const BaiduMap: React.FC<BaiduMapProps> = ({ center, zoom }) => {
   useEffect(() => {
     const loadBaiduMapScript = () => {
       const script = document.createElement("script");
-      script.src = `https://api.map.baidu.com/api?type=webgl&v=1.0&ak=R7HmZ6LRXneE6N1wRr8PJaqOo18zgyVH"`;
-      script.onload = () => {
-        initMap(); // 脚本加载完成后初始化地图
-      };
+      script.src = `https://api.map.baidu.com/api?type=R7HmZ6LRXneE6N1wRr8PJaqOo18zgyVH`;
+      script.onload = initMap;
       document.body.appendChild(script);
     };
 
@@ -27,10 +26,12 @@ const BaiduMap: React.FC<BaiduMapProps> = ({ center, zoom }) => {
         map.centerAndZoom(point, zoom); // 初始化地图，设置中心点坐标和地图缩放级别
         map.enableScrollWheelZoom(); // 启用滚轮缩放
         // 设置默认样式
-        map.setMapStyleV2({ styleId: "dark" });
+        map.setMapStyleV2({
+          // @ts-ignore
+          styleJson: mapStyle,
+        });
       }
     };
-
     loadBaiduMapScript(); // 加载百度地图脚本
 
     return () => {
@@ -39,14 +40,16 @@ const BaiduMap: React.FC<BaiduMapProps> = ({ center, zoom }) => {
         'script[src*="api.map.baidu.com"]',
       ) as HTMLScriptElement;
       if (script && script.parentNode) {
-        // document.body.removeChild(script);
         script.parentNode.removeChild(script);
       }
     };
   }, [center, zoom]);
 
   return (
-    <div ref={mapContainerRef} style={{ width: "100%", height: "100%" }}></div>
+    <div
+      ref={mapContainerRef}
+      style={{ width: "100%", height: "100%", zIndex: -1 }}
+    ></div>
   );
 };
 

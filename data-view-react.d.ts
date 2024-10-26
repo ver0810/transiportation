@@ -1,0 +1,1 @@
+declare module '@jiaminghi/data-view-react/es/borderBox12';

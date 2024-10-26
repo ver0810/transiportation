@@ -12,7 +12,6 @@ import { VerticalBar } from "../components/MyBarcharts";
 import { useState } from "react";
 
 import programImg from "../assets/111.png";
-import { Header } from "../components/Header";
 import BaiduMap from "../components/Maps";
 
 const flowData = [
@@ -43,9 +42,13 @@ export default function OptimizationView() {
   return (
     <>
       <div className="flex items-center justify-center w-full h-full p-2">
-        <div className="grid grid-cols-4 gap-4 h-full"> {/* 确保父容器的高度为全高 */}
+        <div className="grid grid-cols-4 gap-4 h-full">
+          {" "}
+          {/* 确保父容器的高度为全高 */}
           {/* 左侧栏 */}
-          <div className="flex flex-col w-full h-full gap-4"> {/* 保持 h-full */}
+          <div className="flex flex-col w-full h-full gap-4">
+            {" "}
+            {/* 保持 h-full */}
             <div className="flex justify-center items-center gap-4">
               <Card title="" className="w-full h-full">
                 <div className="flex items-center justify-center gap-4 ">
@@ -85,26 +88,22 @@ export default function OptimizationView() {
                 <ButtonDemo className="mt-2">优化</ButtonDemo>
               </div>
             </div>
-
             <div className="flex items-center justify-center flex-col">
               <h1>门到门全量OD数据</h1>
               <div>
                 <VerticalBar data={flowData} />
               </div>
             </div>
-
-            <Card
-              title="交通分析"
-              className="flex flex-col h-[140px]">
+            <Card title="交通分析" className="flex flex-col h-[140px]">
               <div className="flex-col flex w-full h-full max-h-[100%] overflow-y-auto">
                 {recomendCount !== 0 ? (
                   <>
-                  <p>{recomendText2}</p>
-                  <p>更多内容...</p>
-                  <p>更多内容...</p>
-                  <p>更多内容...</p>
-                  <p>更多内容...</p>
-                  <p>更多内容...</p>
+                    <p>{recomendText2}</p>
+                    <p>更多内容...</p>
+                    <p>更多内容...</p>
+                    <p>更多内容...</p>
+                    <p>更多内容...</p>
+                    <p>更多内容...</p>
                   </>
                 ) : (
                   <p>请选择起始路段和终点路段。</p>
@@ -112,17 +111,12 @@ export default function OptimizationView() {
               </div>
             </Card>
           </div>
-
           {/* 中间栏 */}
           <div className="col-span-2 h-full">
             <div className="w-full h-[80vh] border border-[#409eff] rounded-md">
-              <BaiduMap
-                center={{ lng: 120.1551, lat: 30.2741 }}
-                zoom={15}
-              />
+              <BaiduMap center={{ lng: 120.1551, lat: 30.2741 }} zoom={15} />
             </div>
           </div>
-
           {/* 右侧栏 */}
           <div className="h-[80vh] w-full bg-[#31bfc4] rounded-lg bg-opacity-30 p-4 ">
             <div className="flex flex-col items-center justify-center gap-4 border rounded-md p-4">
@@ -132,7 +126,8 @@ export default function OptimizationView() {
                 className="bg-gradient-to-b from-[#f01760] to-[#e44f7f] px-16 shadow-sm text-sm py-1 rounded-md"
                 onClick={() => {
                   setRecomendCount(recomendCount + 1);
-                }}>
+                }}
+              >
                 生成新方案
               </button>
             </div>
@@ -145,10 +140,7 @@ export default function OptimizationView() {
 
             <div className="flex justify-center">
               <div className="inline-block rounded-md border p-1 border-[#409eff]">
-                <img
-                  src={programImg.src}
-                  className="h-[200px] object-cover"
-                />
+                <img src={programImg.src} className="h-[200px] object-cover" />
               </div>
             </div>
           </div>
