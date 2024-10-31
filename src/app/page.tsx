@@ -9,6 +9,7 @@ import {
 
 import HomeVerticalBar from "./components/Charts/HomeVerBar";
 import HomeHoriBar from "./components/Charts/HomeHoriBar";
+import { Header } from "./components/Header";
 
 const chartData = [
   { x: "龙翔桥", y: 9.5 },
@@ -52,6 +53,7 @@ const afterPieData = [
 export default function Home() {
   return (
     <>
+      <Header />
       <div className="flex items-center justify-center w-full h-full p-2">
         <div className="grid grid-cols-4 gap-4">
           {/* 左侧栏 */}
@@ -68,7 +70,7 @@ export default function Home() {
 
           {/* 中间栏 */}
           <div className="col-span-2 flex flex-col gap-4">
-            <div className="h-[200px] w-full flex ">
+            <div className="h-[300px] w-full flex ">
               <Card3>
                 {/* lng: 经, lat:纬 */}
                 <BaiduMap center={{ lng: 120.1551, lat: 30.2741 }} zoom={15} />

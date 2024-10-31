@@ -200,8 +200,11 @@ export function PieComponent({
 
 export function LineComponent({ data }: any) {
   return (
-    <ResponsiveContainer>
-      <LineChart data={data}>
+    <ResponsiveContainer minHeight={200}>
+      <LineChart
+        data={data}
+        margin={{ top: 40, right: 30, left: 0, bottom: 0 }}
+      >
         <XAxis dataKey="x" />
         <YAxis />
         <Line
@@ -219,40 +222,42 @@ export function LineComponent({ data }: any) {
 // 双曲线图
 export function DoubleLineComponent({ data }: any) {
   return (
-    <ResponsiveContainer>
-      <LineChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <XAxis dataKey="name" />
-        <YAxis>
-          <Label
-            value="车流量/百万"
-            position="top"
-            style={{ textAnchor: "middle" }}
+    <div className="w-full">
+      <ResponsiveContainer>
+        <LineChart
+          width={500}
+          height={300}
+          data={data}
+          margin={{
+            top: 20,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <XAxis dataKey="name" />
+          <YAxis>
+            <Label
+              value="车流量/百万"
+              position="top"
+              style={{ textAnchor: "middle" }}
+            />
+          </YAxis>
+          <Line
+            type="monotone"
+            dataKey="intput"
+            stroke="var(--color-mobile)"
+            activeDot={{ r: 8 }}
           />
-        </YAxis>
-        <Line
-          type="monotone"
-          dataKey="intput"
-          stroke="var(--color-mobile)"
-          activeDot={{ r: 8 }}
-        />
-        <Line
-          type="monotone"
-          dataKey="output"
-          stroke="var(--color-desktop)"
-          activeDot={{ r: 8 }}
-        />
-        <Legend verticalAlign="top" />
-      </LineChart>
-    </ResponsiveContainer>
+          <Line
+            type="monotone"
+            dataKey="output"
+            stroke="var(--color-desktop)"
+            activeDot={{ r: 8 }}
+          />
+          <Legend verticalAlign="top" />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   );
 }

@@ -14,11 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased flex flex-col h-screen`}>
-        <div>
-          <Header />
-        </div>
-        <main className="max-h-[100vh]">{children}</main>
+      <body className={`antialiased flex flex-col overflow-scroll`}>
+        <main className="flex flex-col w-full h-full ">
+          {children}
+        </main>
         <script
           type="text/javascript"
           src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=R7HmZ6LRXneE6N1wRr8PJaqOo18zgyVH"

@@ -35,7 +35,7 @@ const Card2: React.FC<CardProps> = ({
 const Card3 = ({ children }: { children: React.ReactNode }) => {
   return (
     <BorderBox12>
-      <div className="w-full h-[200px] p-2 flex items-center justify-center">
+      <div className="w-full h-full p-2 flex items-center justify-center">
         {children}
       </div>
     </BorderBox12>

@@ -13,6 +13,7 @@ import { useState } from "react";
 
 import programImg from "../assets/111.png";
 import BaiduMap from "../components/Maps";
+import { Header } from "../components/Header";
 
 const flowData = [
   { x: "武林广场", y: 1200 },
@@ -41,6 +42,7 @@ export default function OptimizationView() {
 
   return (
     <>
+      <Header />
       <div className="flex items-center justify-center w-full h-full p-2">
         <div className="grid grid-cols-4 gap-4 h-full">
           {" "}
