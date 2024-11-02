@@ -31,7 +31,7 @@ export default function TrafficManagementView() {
         </div>
 
         {/* 第二栏 */}
-        <div className="flex w-[50%] h-full">
+        <div className="flex w-[50%] h-[80vh]">
           <BorderBox12>
             {/* lng: 经, lat:纬 */}
             <BaiduMap center={{ lng: 120.1551, lat: 30.2741 }} zoom={15} />

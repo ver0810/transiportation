@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { ButtonDemo } from "../components/ButtonDemo";
 
@@ -9,9 +9,12 @@ import Offline4 from "../assets/Offline4.jpg";
 import { Header } from "../components/Header";
 
 import BorderBox1 from "@jiaminghi/data-view-react/es/borderBox1";
-import Card1 from "./components/Card1";
 import LineDemo from "./components/Bar";
 import BarDemo from "./components/Bar";
+import Card1 from "./components/Card1";
+import Card2 from "./components/Card2";
+import Card3 from "./components/Card3";
+import Card4 from "./components/Card4";
 
 const areaFlowData = [
   { x: "杭州西站", y: 6600 },
@@ -47,13 +50,25 @@ export default function OfflineCommerce() {
 
           {/* 第二栏 */}
           <div className="w-full col-span-1 h-full">
+            <BorderBox1>
+              <Card2 />
+            </BorderBox1>
           </div>
 
           {/* 第三栏 */}
-          <div className="w-full col-span-1 h-full"></div>
+          <div className="w-full col-span-1 h-full">
+            <BorderBox1>
+              <Card3 />
+            </BorderBox1>
+          </div>
 
           {/* 第四栏 */}
-          <div className="w-full col-span-1 h-full"></div>
+          <div className="w-full col-span-1 h-full">
+            {" "}
+            <BorderBox1>
+              <Card4 />
+            </BorderBox1>
+          </div>
         </div>
       </div>
     </>
